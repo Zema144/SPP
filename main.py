@@ -48,6 +48,27 @@ class Triangle(Shape):
         return self.a + self.b + self.c
 
 
+class Shape3D:
+    def volume(self) -> float:
+        raise NotImplementedError
+
+
+class Sphere(Shape3D):
+    def __init__(self, radius: float):
+        self.radius = radius
+
+    def volume(self) -> float:
+        return (4/3) * math.pi * self.radius**3
+
+
+class Cube(Shape3D):
+    def __init__(self, side: float):
+        self.side = side
+
+    def volume(self) -> float:
+        return self.side**3
+
+
 class ShapeFactory:
     @staticmethod
     def create_shape(shape_type: str, parameters: List[float]) -> Shape:
