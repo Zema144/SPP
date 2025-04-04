@@ -81,6 +81,15 @@ class ShapeFactory:
         else:
             raise ValueError(f"Unsupported shape or incorrect parameters: {shape_type} {parameters}")
 
+    @staticmethod
+    def create_shape_3d(shape_type: str, parameters: List[float]) -> Shape3D:
+        if shape_type == 'sphere' and len(parameters) == 1:
+            return Sphere(parameters[0])
+        elif shape_type == 'cube' and len(parameters) == 1:
+            return Cube(parameters[0])
+        else:
+            raise ValueError(f"Unsupported 3D shape or incorrect parameters: {shape_type} {parameters}")
+
 
 
 def read_shapes_from_csv(file_path: str) -> List[Tuple[str, List[float]]]:
