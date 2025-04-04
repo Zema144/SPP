@@ -111,6 +111,10 @@ def process_shapes(file_path: str):
             if shape_type in ['rectangle', 'circle', 'triangle']:
                 shape = ShapeFactory.create_shape(shape_type, params)
                 print(f"Фігура: {shape_type.capitalize()} | Параметри: {params} | Площа: {shape.area():.2f} | Периметр: {shape.perimeter():.2f}")
+            elif shape_type in ['sphere', 'cube']:
+                shape_3d = ShapeFactory.create_shape_3d(shape_type, params)
+                print(
+                    f"Просторова фігура: {shape_type.capitalize()} | Параметри: {params} | Об'єм: {shape_3d.volume():.2f}")
         except ValueError as e:
             print(f"Помилка: {e}")
 
